@@ -1,0 +1,293 @@
+/* Colors */
+
+:root {
+  --primary: #355070;
+  --secondary: #6D597A;
+  --third: #B56576;
+  --fourth: #E56B6F;
+  --fifth: #EAAC8B;
+}
+
+/* General styles */
+
+#app {
+  height: 100%;
+}
+
+.auth-tabs > .ant-tabs-top > .ant-tabs-nav {
+  margin: 0px;
+}
+
+.auth-tabs > .ant-tabs-card > .ant-tabs-nav .ant-tabs-tab {
+  background: transparent;
+  border-color: transparent;
+}
+
+.auth-tabs > .ant-tabs-card > .ant-tabs-nav .ant-tabs-tab-active {
+  background-color: var(--primary);
+  border-color: transparent;
+  border-radius: 0.3rem 0.3rem 0 0;
+}
+
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: white;
+}
+
+.ant-tabs-tab-btn:not(.ant-tabs-tab-active) {
+  font-weight: 500;
+}
+
+.ant-tabs-tab:hover {
+  color: var(--primary);
+}
+
+.ant-tabs-tab-btn:focus {
+  color: var(--primary);
+}
+
+.ant-tabs-tab-btn:active {
+  color: var(--primary);
+}
+
+.ant-input:focus {
+  border-color: var(--fifth);
+  box-shadow: 0 0 0 2px var(--fifth);
+}
+
+.ant-input:hover {
+  border-color: var(--fifth);
+}
+
+.ant-input-affix-wrapper-focused {
+  border-color: var(--fifth);
+  box-shadow: 0 0 0 2px var(--fifth);
+}
+
+.ant-input-affix-wrapper:focus {
+  color: var(--fifth);
+  border-color: var(--fifth);
+  box-shadow: 0 0 0 2px var(--fifth);
+}
+
+.ant-input-affix-wrapper:hover {
+  color: var(--fifth);
+  border-color: var(--fifth);
+}
+
+.ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover {
+  border-color: var(--fifth);
+}
+
+.ant-btn:focus {
+  color: var(--fifth);
+  border-color: var(--fifth);
+}
+
+.ant-btn:hover {
+  color: var(--fifth);
+  border-color: var(--fifth);
+}
+
+/* Utility css */
+
+.d-none {
+  display: none;
+}
+
+.d-block {
+  display: block;
+}
+
+.d-inline {
+  display: inline;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.flex-2 {
+  flex: 2;
+}
+
+.flex-8 {
+  flex: 8;
+}
+
+.gap-1 {
+  gap: 0.5rem;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-end {
+  justify-content: end;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-end {
+  align-items: end;
+}
+
+.align-stretch {
+  align-items: stretch;
+}
+
+.radius-1 {
+  border-radius: 0.3rem;
+}
+
+.overflow-x-auto {
+  overflow-x: auto;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.p-1 {
+  padding: 0.5rem;
+}
+
+.p-2 {
+  padding: 1rem;
+}
+
+.pb-1 {
+  padding-bottom: 0.5rem;
+}
+
+.pb-2 {
+  padding-bottom: 1rem;
+}
+
+.px-1 {
+  padding: 0 0.5rem 0 0.5rem;
+}
+
+.px-2 {
+  padding: 0 1rem 0 1rem;
+}
+
+.m-0 {
+  margin: 0!important;
+}
+
+.my-1 {
+  margin: 0.5rem 0 0.5rem 0;
+}
+
+.mx-1 {
+  margin: 0 0.5rem 0 0.5rem;
+}
+
+.mt-1 {
+  margin-top: 0.5rem;
+}
+
+.mr-1 {
+  margin-right: 0.5rem;
+}
+
+.ml-1 {
+  margin-left: 0.5rem;
+}
+
+.mb-1 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-2 {
+  margin-bottom: 1rem;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.text-white {
+  color: white!important;
+}
+
+.text-black {
+  color: black!important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.font-weight-500 {
+  font-weight: 500;
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.bg-primary {
+  background-color: var(--primary);
+}
+
+.bg-secondary {
+  background-color: var(--secondary);
+}
+
+.bg-third {
+  background-color: var(--third);
+}
+
+.bg-fourth {
+  background-color: var(--fourth);
+}
+
+.text-fourth {
+  color: var(--fourth);
+}
+
+.bg-fifth {
+  background-color: var(--fifth);
+}
+
+/* Media queries */
+
+@media (min-width: 768px) {
+  .w-50-md {
+    width: 50%;
+  }
+
+  .d-block-md {
+    display: block;
+  }
+
+  .d-none-md {
+    display: none;
+  }
+}
+
+@media (min-width: 992px) {
+  .flex-row-lg {
+    flex-direction: row;
+  }
+}

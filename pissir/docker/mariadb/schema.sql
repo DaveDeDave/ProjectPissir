@@ -1,0 +1,79 @@
+CREATE TABLE IF NOT EXISTS user (
+  id VARCHAR(200) PRIMARY KEY,
+  email VARCHAR(200) UNIQUE,
+  name TEXT NOT NULL,
+  surname TEXT NOT NULL,
+  password TEXT NOT NULL,
+  birthDate DATETIME NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS admin (
+  id VARCHAR(200) PRIMARY KEY,
+  FOREIGN KEY (id) REFERENCES user (id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS company (
+  id VARCHAR(200) PRIMARY KEY,
+  adminID VARCHAR(200) NOT NULL,
+  name TEXT NOT NULL,
+  address TEXT NOT NULL,
+  FOREIGN KEY (adminID) REFERENCES admin (id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS employee (
+  id VARCHAR(200) PRIMARY KEY,
+  type ENUM('farmer', 'collaborator') NOT NULL,
+  active BOOLEAN NOT NULL,
+  companyID VARCHAR(200) NOT NULL,
+  FOREIGN KEY (id) REFERENCES user (id) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (companyID) REFERENCES company (id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS field (
+  id VARCHAR(200) PRIMARY KEY,
+  name TEXT NOT NULL,
+  outdoor BOOLEAN NOT NULL,
+  address TEXT,
+  companyID VARCHAR(200) NOT NULL,
+  FOREIGN KEY (companyID) REFERENCES company (id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS actuator (
+  topic VARCHAR(200),
+  fieldID VARCHAR(200),
+  FOREIGN KEY (fieldID) REFERENCES field (id) ON DELETE CASCADE ON UPDATE CASCADE,
+  PRIMARY KEY (topic, fieldID)
+);
+
+CREATE TABLE IF NOT EXISTS sensor (
+  topic VARCHAR(200),
+  fieldID VARCHAR(200),
+  FOREIGN KEY (fieldID) REFERENCES field (id) ON DELETE CASCADE ON UPDATE CASCADE,
+  PRIMARY KEY (topic, fieldID)
+);
+
+CREATE TABLE IF NOT EXISTS measure (
+  id INTEGER PRIMARY KEY AUTO_INCREMENT,
+  value DOUBLE NOT NULL,
+  sensorTopic VARCHAR(200),
+  timestamp DATETIME,
+  fieldID VARCHAR(200),
+  FOREIGN KEY (sensorTopic, fieldID) REFERENCES sensor (topic, fieldID) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS configuration (
+  actuatorTopic VARCHAR(200),
+  fieldID VARCHAR(200),
+  sensorTopic VARCHAR(200),
+  conditionType ENUM('<', '>'),
+  conditionValue DOUBLE,
+  conditionFalse DOUBLE,
+  conditionTrue DOUBLE,
+  active BOOLEAN NOT NULL,
+  startTime INTEGER check(startTime >= 0),
+  endTime INTEGER check(endTime <= 24 AND endTime > startTime),
+  FOREIGN KEY (sensorTopic) REFERENCES sensor (topic) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (actuatorTopic) REFERENCES actuator (topic) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (fieldID) REFERENCES actuator (fieldID) ON DELETE CASCADE ON UPDATE CASCADE,
+  PRIMARY KEY (actuatorTopic, fieldID)
+);

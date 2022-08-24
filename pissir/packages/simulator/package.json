@@ -1,0 +1,19 @@
+{
+  "name": "@pissir/simulator",
+  "version": "1.0.0",
+  "description": "Progetto d'esame: laboratorio di PISSIR (2021/2022) - Microservizione per il simulatore del sottosistema IoT",
+  "repository": "https://github.com/DaveDeDave/ProjectPissir",
+  "author": "Ceci-Tamone",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon -L --watch . --watch ../lib -r dotenv/config app.js dotenv_config_path=dev.env"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}

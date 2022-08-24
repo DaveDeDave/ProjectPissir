@@ -1,0 +1,15 @@
+FROM alpine:latest
+WORKDIR /app
+RUN apk add nodejs npm
+RUN npm install -g yarn
+COPY package.json .
+COPY yarn.lock .
+COPY yarnrc.yml .
+COPY .yarn ./.yarn/
+COPY packages/be/package.json ./packages/be/package.json
+COPY packages/lib/package.json ./packages/lib/package.json
+RUN yarn
+COPY packages/be/ ./packages/be/
+COPY packages/lib/ ./packages/lib/
+#RUN yarn workspaces focus --production @pissir/be
+CMD yarn workspace @pissir/be prod

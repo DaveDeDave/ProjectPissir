@@ -1,0 +1,14 @@
+FROM alpine:latest
+WORKDIR /app
+RUN apk add nodejs npm
+RUN npm install -g yarn
+COPY package.json .
+COPY yarn.lock .
+COPY yarnrc.yml .
+COPY .yarn ./.yarn/
+COPY packages/simulator/package.json ./packages/simulator/package.json
+COPY packages/lib/package.json ./packages/lib/package.json
+RUN yarn
+RUN yarn global add nodemon
+#RUN yarn workspaces focus --production @pissir/be
+CMD yarn workspace @pissir/simulator dev

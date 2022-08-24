@@ -1,0 +1,36 @@
+{
+  "name": "@pissir/be",
+  "version": "1.0.0",
+  "description": "Progetto d'esame: laboratorio di PISSIR (2021/2022) - Backend",
+  "main": "index.js",
+  "repository": "https://github.com/DaveDeDave/ProjectPissir",
+  "author": "Ceci-Tamone",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prod": "node -r dotenv/config server.js dotenv_config_path=prod.env",
+    "dev": "nodemon -L --watch . --watch ../lib -r dotenv/config server.js dotenv_config_path=dev.env",
+    "test": "mocha"
+  },
+  "mocha": {
+    "timeout": 10000,
+    "exit": true,
+    "file": [
+      "../lib/src/test/loadEnvTest.js"
+    ]
+  },
+  "dependencies": {
+    "@fastify/swagger": "^6.0.1",
+    "@pissir/lib": "1.0.0",
+    "dotenv": "^16.0.1",
+    "fastify": "^3.29.0",
+    "fastify-plugin": "^3.0.1",
+    "ulid": "^2.3.0"
+  },
+  "devDependencies": {
+    "mocha": "^10.0.0",
+    "nodemon": "^2.0.16",
+    "supertest": "^6.2.3"
+  }
+}

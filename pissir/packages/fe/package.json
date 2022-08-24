@@ -1,0 +1,34 @@
+{
+  "name": "@pissir/fe",
+  "version": "0.0.0",
+  "description": "Progetto d'esame: laboratorio di PISSIR (2021/2022) - Backend",
+  "repository": "https://github.com/DaveDeDave/ProjectPissir",
+  "author": "Ceci-Tamone",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@iconify/vue": "^3.2.1",
+    "@intlify/vite-plugin-vue-i18n": "^3.4.0",
+    "ant-design-vue": "^3.2.6",
+    "apexcharts": "^3.35.3",
+    "axios": "^0.27.2",
+    "socket.io-client": "^4.5.1",
+    "unplugin-icons": "^0.14.3",
+    "unplugin-vue-components": "^0.19.6",
+    "vue": "^3.2.25",
+    "vue-i18n": "9",
+    "vue-request": "^1.2.4",
+    "vue-router": "4",
+    "vue3-apexcharts": "^1.4.1",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.3.3",
+    "vite": "^2.9.9"
+  }
+}
