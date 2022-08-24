@@ -96,6 +96,8 @@ You should start the application in development environment (command `docker:sta
 - /v1/auth/docs – for authentication microservice (backend)
 - /v1/mosquito/docs – for mosquito microservice (backend)
 
+You can view a demo version of this application [here](https://pissir.lukeaz.ml)
+
 ## Troubleshooting
 
 On windows it may happend that a system service blocks certain ports and so it is impossible to start the containers. A possible solution is to run the `net stop winnat` command.

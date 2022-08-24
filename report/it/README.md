@@ -96,6 +96,7 @@ In modalità development e production, il database non verrà eliminato quando i
 - /v1/auth/docs – per il microservizio dell’autenticazione (backend)
 - /v1/mosquito/docs – per il microservizio di mosquito (backend)
 
+È possibile visionare una versione demo dell'applicazione [qui](https://pissir.lukeaz.ml)
 
 ## Troubleshooting
 
